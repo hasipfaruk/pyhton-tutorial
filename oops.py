@@ -324,85 +324,200 @@
 
 # Encapsulation
 
-class Atm:
-    # Constructor
-    def __init__(self):
-        self.pin = "" # Public attribute
-        self.__balance = 0 # Private attribute
-        self.menu() # Call menu method
-    # setter
-    def set_balance(self, balance):
-        self.__balance = balance
-        if self.__balance == int:
-            print("Balance set successfully!")
-        else:
-            print("Invalid balance!")
-    def get_balance(self):
-        return self.__balance
+# class Atm:
+#     # Constructor
+#     def __init__(self):
+#         self.pin = "" # Public attribute
+#         self.__balance = 0 # Private attribute
+#         self.menu() # Call menu method
+#     # setter
+#     def set_balance(self, balance):
+#         self.__balance = balance
+#         if self.__balance == int:
+#             print("Balance set successfully!")
+#         else:
+#             print("Invalid balance!")
+#     def get_balance(self):
+#         return self.__balance
 
-    def menu(self):
-        user_input = input("""
-        Hello, How can I help you?
-        1. Press 1 to create pin
-        2. Press 2 to deposit
-        3. Press 3 to withdraw
-        4. Press 4 to check balance
-        5. Press 5 to exit
-        """)
+#     def menu(self):
+#         user_input = input("""
+#         Hello, How can I help you?
+#         1. Press 1 to create pin
+#         2. Press 2 to deposit
+#         3. Press 3 to withdraw
+#         4. Press 4 to check balance
+#         5. Press 5 to exit
+#         """)
 
-        if user_input == "1":
-            self.create_pin()
-        elif user_input == "2":
-            self.deposit()
-        elif user_input == "3":
-            self.withdraw()
-        elif user_input == "4":
-            self.check_balance()  # Renamed method
-        elif user_input == "5":
-            exit()  # Fixed exit call
-        else:
-            print("Invalid option! Please try again.")
-            self.menu()
+#         if user_input == "1":
+#             self.create_pin()
+#         elif user_input == "2":
+#             self.deposit()
+#         elif user_input == "3":
+#             self.withdraw()
+#         elif user_input == "4":
+#             self.check_balance()  # Renamed method
+#         elif user_input == "5":
+#             exit()  # Fixed exit call
+#         else:
+#             print("Invalid option! Please try again.")
+#             self.menu()
 
-    def create_pin(self):
-        self.pin = input("Enter your pin: ")
-        print("Your pin is created successfully")
-        self.menu()
+#     def create_pin(self):
+#         self.pin = input("Enter your pin: ")
+#         print("Your pin is created successfully")
+#         self.menu()
 
-    def deposit(self):
-        entered_pin = input("Enter your pin: ")
-        if entered_pin == self.pin:
-            amount = int(input("Enter the amount you want to deposit: "))
-            self.__balance += amount
-            print("Amount deposited successfully")
-        else:
-            print("Incorrect PIN! Access denied.")
-        self.menu()
+#     def deposit(self):
+#         entered_pin = input("Enter your pin: ")
+#         if entered_pin == self.pin:
+#             amount = int(input("Enter the amount you want to deposit: "))
+#             self.__balance += amount
+#             print("Amount deposited successfully")
+#         else:
+#             print("Incorrect PIN! Access denied.")
+#         self.menu()
 
-    def withdraw(self):
-        entered_pin = input("Enter your pin: ")
-        if entered_pin == self.pin:
-            amount = int(input("Enter the amount you want to withdraw: "))
-            if amount > self.__balance:
-                print("Insufficient balance")
-            else:
-                self.__balance -= amount
-                print("Amount withdrawn successfully")
-        else:
-            print("Incorrect PIN! Access denied.")
-        self.menu()
+#     def withdraw(self):
+#         entered_pin = input("Enter your pin: ")
+#         if entered_pin == self.pin:
+#             amount = int(input("Enter the amount you want to withdraw: "))
+#             if amount > self.__balance:
+#                 print("Insufficient balance")
+#             else:
+#                 self.__balance -= amount
+#                 print("Amount withdrawn successfully")
+#         else:
+#             print("Incorrect PIN! Access denied.")
+#         self.menu()
 
-    def check_balance(self):
-        entered_pin = input("Enter your pin: ")
-        if entered_pin == self.pin:
-            print(f"Your balance is {self.__balance}")
-        else:
-            print("Incorrect PIN! Access denied.")
-        self.menu()
+#     def check_balance(self):
+#         entered_pin = input("Enter your pin: ")
+#         if entered_pin == self.pin:
+#             print(f"Your balance is {self.__balance}")
+#         else:
+#             print("Incorrect PIN! Access denied.")
+#         self.menu()
 
 
 # Creating ATM object
 # obj = Atm()
 
-obj=Atm()
+# obj=Atm()
 
+
+
+
+
+# Question 1 
+# Create a Python program that lets a user play Rock-Paper-Scissors against the computer.
+
+# Use random.choice(["rock", "paper", "scissors"]) to pick the computer’s move.
+
+# Compare moves and display the result.
+
+
+# Question 2
+# Create a ShoppingCart class with:
+
+# Attributes: A dictionary to store items and their prices.
+
+# Methods:
+
+# add_item(item, price): Adds an item.
+
+# remove_item(item): Removes an item.
+
+# view_cart(): Displays the cart with total price.
+
+
+
+# import random
+
+# choices = ["rock", "paper", "scissors"]
+
+# def get_winner(user, computer):
+#     if user == computer:
+#         return "It's a tie!"
+#     elif (user == "rock" and computer == "scissors") or \
+#          (user == "paper" and computer == "rock") or \
+#          (user == "scissors" and computer == "paper"):
+#         return "You win!"
+#     else:
+#         return "Computer wins!"
+
+# def play_game():
+#     print("Welcome to Rock-Paper-Scissors!")
+#     user_choice = input("Enter rock, paper, or scissors: ").lower()
+
+#     if user_choice not in choices:
+#         print("Invalid choice! Please enter rock, paper, or scissors.")
+#         return play_game()  
+
+#     computer_choice = random.choice(choices)
+    
+#     print(f"Computer chose: {computer_choice}")
+
+#     result = get_winner(user_choice, computer_choice)
+#     print(result)
+
+# # Run the game
+# play_game()
+
+
+
+import random 
+choices=["rock", "paper", "scissors"]
+computer_choice = random.choice(choices)
+user_choice = input("Enter rock, paper, or scissors: ").lower()
+if user_choice not in choices:
+        print("Invalid choice! Please enter rock, paper, or scissors.")
+else:
+        print(f"Computer chose: {computer_choice}")
+        # print(get_winner(user_choice, computer_choice))
+
+
+
+
+
+# 2nd Question
+
+class ShoppingCart:
+    def __init__(self):
+        self.cart = {}
+
+    def add_item(self, item, price):
+        """Add an item to the cart."""
+        if item in self.cart:
+            self.cart[item] += price  # Update price if item already exists
+        else:
+            self.cart[item] = price
+        print(f"{item} added to cart.")
+
+    def remove_item(self, item):
+        """Remove an item from the cart."""
+        if item in self.cart:
+            del self.cart[item]
+            print(f"{item} removed from cart.")
+        else:
+            print(f"{item} not found in cart.")
+
+    def view_cart(self):
+        """Display the cart items and total price."""
+        if not self.cart:
+            print("Your cart is empty.")
+        else:
+            total = sum(self.cart.values())
+            print("\nShopping Cart:")
+            for item, price in self.cart.items():
+                print(f"- {item}: ${price:.2f}")
+            print(f"Total Price: ${total:.2f}\n")
+
+
+cart = ShoppingCart()
+cart.add_item("Laptop", 1200)
+cart.add_item("Headphones", 150)
+cart.view_cart()
+cart.remove_item("Laptop")
+cart.view_cart()
